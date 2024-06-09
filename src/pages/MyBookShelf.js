@@ -17,7 +17,7 @@ const MyBookShelf = () => {
                 <div className='book-items'>
                     {mybooks &&
                         mybooks.map((book, index) => {
-                            return <BookCard title={book.title} edition_count={book.edition_count} key={index} mybooks={mybooks} setMyBooks={setMyBooks} />
+                            return <BookCard title={book.title} edition_count={book.edition_count} id={book.id} key={book.id} mybooks={mybooks} setMyBooks={setMyBooks} />
                         })
                     }
                     {

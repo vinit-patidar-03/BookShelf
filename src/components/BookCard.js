@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
-const BookCard = ({ title, edition_count, setMyBooks }) => {
+const BookCard = ({ title, edition_count, setMyBooks, mybooks, id }) => {
 
     const location = useLocation();
 
@@ -11,14 +12,16 @@ const BookCard = ({ title, edition_count, setMyBooks }) => {
 
     const AddBookInMyShelf = () => {
         const mybooks = JSON.parse(localStorage.getItem("mybooks")) || [];
-        localStorage.setItem("mybooks", JSON.stringify([...mybooks, { title, edition_count }]));
+        localStorage.setItem("mybooks", JSON.stringify([...mybooks, { id: Date.now(), title, edition_count }]));
+        toast.success("Added to Your Bookshelf")
     }
 
-    const RemoveBookfromMyShelf = (title) => {
+    const RemoveBookfromMyShelf = (id) => {
         if (localStorage.getItem("mybooks")) {
-            const mybooks = JSON.parse(localStorage.getItem("mybooks")).filter((book) => book.title !== title);
+            const mybooks = JSON.parse(localStorage.getItem("mybooks")).filter((book) => book.id !== id);
             setMyBooks(mybooks);
             localStorage.setItem("mybooks", JSON.stringify(mybooks));
+            toast.success("Removed from Your Bookshelf");
         }
     }
 
@@ -32,7 +35,7 @@ const BookCard = ({ title, edition_count, setMyBooks }) => {
                     <p><span>Edition Count: </span>{edition_count}</p>
                 </div>
                 {location.pathname === '/' && <button className='btn' onClick={AddBookInMyShelf}>Add to MyBookshelf</button>}
-                {location.pathname !== '/' && <button className='btn-remove' onClick={() => { RemoveBookfromMyShelf(title) }}>Remove</button>}
+                {location.pathname !== '/' && <button className='btn-remove' onClick={() => { RemoveBookfromMyShelf(id) }}>Remove</button>}
             </div>
         </>
     )
