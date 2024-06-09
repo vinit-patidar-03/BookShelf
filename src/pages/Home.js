@@ -5,7 +5,7 @@ import Spinner from '../components/Spinner';
 
 const Home = () => {
     const [search, setSearch] = useState("");
-    const [finalInput, setFinalInput] = useState(localStorage.getItem("lastSearch"));
+    const [finalInput, setFinalInput] = useState(localStorage.getItem("lastsearch") && JSON.parse(localStorage.getItem("lastSearch")));
     const [books, setBooks] = useState([]);
     const [loading, setLoading] = useState(false);
 
