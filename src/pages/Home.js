@@ -5,7 +5,7 @@ import Spinner from '../components/Spinner';
 
 const Home = () => {
     const [search, setSearch] = useState("");
-    const [finalInput, setFinalInput] = useState(localStorage.getItem("lastsearch") && JSON.parse(localStorage.getItem("lastSearch")));
+    const [finalInput, setFinalInput] = useState(localStorage.getItem("lastSearch") ? localStorage.getItem("lastSearch") : "");
     const [books, setBooks] = useState([]);
     const [loading, setLoading] = useState(false);
 
@@ -24,11 +24,13 @@ const Home = () => {
     }, [fetchBooksData, finalInput])
 
     useEffect(() => {
-        const timer = setTimeout(() => {
-            setFinalInput(search);
-            localStorage.setItem("lastSearch", search);
-        }, 1000);
-        return () => clearTimeout(timer);
+        if (search !== "") {
+            const timer = setTimeout(() => {
+                setFinalInput(search);
+                localStorage.setItem("lastSearch", search);
+            }, 1000);
+            return () => clearTimeout(timer);
+        }
     }, [search]);
 
     const handleChange = (e) => {
