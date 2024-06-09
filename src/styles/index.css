@@ -1,0 +1,167 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  font-family: sans-serif;
+
+}
+
+/* Navbar Styling */
+.navbar{
+  background-color: rgb(52, 170, 216);
+}
+
+.nav-links{
+  padding: 1.5rem;
+  display: flex; 
+  justify-content: space-between;
+  list-style: none;
+}
+
+.nav-link{
+  text-decoration: none;
+  color: white;
+  font-size: larger;
+  font-weight: bolder;
+  font-family:cursive;
+}
+
+.nav-link span{
+  color: crimson;
+  font-size: 20px;
+  margin-left: 2px;
+}
+
+/* Search Styling */
+.search-items{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+  padding: 0px 10px;
+}
+
+.search-btn{
+  padding: 10px;
+  background-color: rgb(21, 182, 21);
+  color: white;
+  font-size: medium;
+  border: 2px solid rgb(21, 182, 21);
+  border-radius: 5px;
+  cursor: pointer;
+
+}
+.search-items input{
+  padding: 10px;
+  font-size: medium;
+  border-radius: 5px;
+  width: 50%;
+}
+
+/* Book Items */
+.book-items{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px;
+}
+
+/* Book Card */
+.book-card{
+  width: calc(25% - 30px);
+   border: 1px solid black;
+   padding: 10px 10px 50px 10px;
+   position: relative;
+   border-radius: 5px;
+   box-shadow: 0px 0px 3px 1px rgba(0,0,0,0.5);
+}
+
+.book-title p span, .book-edition p span{
+  font-weight: bold;
+}
+
+.book-title p{
+  margin-bottom: 5px;
+  font-size: medium;
+}
+
+/* No Books */
+.no-books{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+}
+
+.no-books h2{
+  margin: 25px 0px;
+}
+
+/* My Book Shelf */
+.mybookshelf h2{
+  text-align: center;
+  margin: 20px 0px;
+}
+
+/* button styles */
+.btn{
+  padding: 5px 10px;
+  background-color: rgb(21, 182, 21);
+  color: white;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.btn:hover {
+  background-color: green;
+  transition: all 0.5s;
+}
+
+.btn-remove{
+    padding: 5px 10px;
+      background-color: rgb(219, 31, 31);
+      color: white;
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.5s;
+}
+
+.btn-remove:hover {
+  background-color: red;
+  transition: all 0.5s;
+}
+
+@media (max-width: 900px) {
+  .book-card{
+    width: calc(33.33% - 29px);
+  }
+}
+
+@media (max-width: 600px) {
+  .book-card {
+    width: calc(50% - 27px);
+  }
+
+  .search-items input{
+    width: 100%;
+  }
+}
+
+/* Spinner style */
+.spinner img{
+   display: block;
+   margin: auto;
+   width: 75px;
+   margin-top: 50px;
+}
