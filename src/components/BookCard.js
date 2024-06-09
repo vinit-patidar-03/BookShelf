@@ -10,10 +10,8 @@ const BookCard = ({ title, edition_count, setMyBooks }) => {
     }, [location])
 
     const AddBookInMyShelf = () => {
-        if (localStorage.getItem("mybooks")) {
-            const mybooks = JSON.parse(localStorage.getItem("mybooks"));
-            localStorage.setItem("mybooks", JSON.stringify([...mybooks, { title, edition_count }]));
-        }
+        const mybooks = JSON.parse(localStorage.getItem("mybooks")) || [];
+        localStorage.setItem("mybooks", JSON.stringify([...mybooks, { title, edition_count }]));
     }
 
     const RemoveBookfromMyShelf = (title) => {
