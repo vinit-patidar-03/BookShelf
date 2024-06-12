@@ -71,7 +71,6 @@ body{
 /* Book Card */
 .book-card{
   width: calc(25% - 30px);
-   border: 1px solid black;
    padding: 10px 10px 50px 10px;
    position: relative;
    border-radius: 5px;
